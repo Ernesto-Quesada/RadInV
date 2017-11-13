@@ -16,10 +16,14 @@ const isotopeSchema = new Schema({
   //description:{ type: String },
   //imageUrl: { type: String },
 
-  //reference to the user author who took the photo
-  owner: { type: Schema.Types.ObjectId },
+  //reference to the user
+  principalInvestigator: { type: Schema.Types.ObjectId },
+  role: { type: String,
+    enum: [ 'guest', 'admin' ],
+    default: 'guest'
+    },
   //---reviews as subdocument of photos //
-  reviews:[photoReview.schema],
+  
 
 
 });
