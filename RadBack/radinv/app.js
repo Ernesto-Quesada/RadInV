@@ -11,7 +11,7 @@ const passport     = require('passport');
 const flash        = require('connect-flash');
 
 require('dotenv').config();
-require('./config/passport-config.js');
+//require('./config/passport-config.js');
 
 mongoose.connect('mongodb://localhost/radinv');
 
@@ -58,6 +58,10 @@ app.use((req, res, next) => {
 
 const index = require('./routes/index');
 app.use('/', index);
+
+//--------isotopes routes
+const isotopesRoutes = require('./routes/isotopeRoute.js');
+app.use('/', isotopesRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
