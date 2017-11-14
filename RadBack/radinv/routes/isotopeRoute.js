@@ -84,7 +84,7 @@ router.get('/isotopes/new', (req, res, next) => {
 // router.get('/api/agency/', (req, res, next) => {
 //     const agencyNa = req.query.name;
 //     console.log('LOLOLOLO', agencyNa);
-//     Agency.find({nameAgency: { $regex: '.*' + agencyNa + '.*' }}, (err, theAgency) => {
+//     Agency.find({isotopeName: { $regex: '.*' + agencyNa + '.*' }}, (err, theAgency) => {
 //       if (err) {
 //         res.json(err);
 //         return;
@@ -113,7 +113,7 @@ router.get('/isotopes/new', (req, res, next) => {
 //     const agencyId = req.params.id;
         
 //       const agencyChanges = {
-//         nameAgency: req.body.agencyName,
+//         isotopeName: req.body.agencyName,
 //         email:req.body.email,
 //         contactPhone: req.body.contactPhone
 
@@ -132,92 +132,90 @@ router.get('/isotopes/new', (req, res, next) => {
 // });
 
 
-// //======== Post the form and save the data   =======
-// //======== in the data base   =====================
-// // ONLY FOR ADMIN not for USERS
-// router.post('/agency',
-//   ensure.ensureLoggedIn('/login'),
+//======== Post the form and save the data   =======
+//======== in the data base   =====================
+// ONLY FOR ADMIN not for USERS
+router.post('/isotope',
+  //ensure.ensureLoggedIn('/login'),
 
-//     (req, res, next) => {      
-//         const nameAgency = req.body.nameAgencyInput;
-//         const emailAgency = req.body.emailAgencyInput;
-//         address: req.body.description;
-//         country: req.body.country
-//         //imageUrl: `/images/${req.file.filename}`
-//       console.log('NAME AGENCY',nameAgency);
-//       console.log('email AGENCY',emailAgency);
+    (req, res, next) => {      
+        const isotopeName = req.body.isotopeName;
+        const currentAmount = req.body.currentAmount;
+        //imageUrl: `/images/${req.file.filename}`
+      console.log('NAME Isotoep',isotopeName);
+      console.log('current amunt',currentAmount);
 
-//         if (emailAgency == '' || nameAgency == '') {
-//             res.render('agency/newAgency.ejs', {
-//                 errorMessage: 'Please provide both email and password.'
-//             });
-//             return;
-//         //       {
-//         //     res.status(400).json({ message: 'Provide username and password.' });
-//         //     return;
-//         //   }
-//             }
-//     Agency.findOne(
-//         // 1st arg -> criteria of the findOne (which documents)
-//       { email: emailAgency },
-//       // 2nd arg -> projection (which fields)
-//       { email: 1 },
-//       // 3rd arg -> callback
-//       (err, foundAgency) =>{
-//             if (err) {
-//                 res.status(500).json({ message: 'Something went wrong.' });
-//                 return;
-//             }
-//             console.log('found',foundAgency)
-//             // Don't let the user register if the email is taken
-//             if (foundAgency) {
-//             res.render('agency/newAgency.ejs', {
-//               errorMessage: 'This agency is already in our system '
-//             });
-//             return;
-//             // res.status(400).json({ message: 'The username already exists.' });
-//             // return;
-//             }
-//         // Create the Agency
-//         const theAgency = new Agency({
-//           nameAgency: req.body.nameAgencyInput,
-//           email: req.body.emailAgencyInput,
-//           contactPhone: req.body.phoneInput,
-//           //address:,
-//         });
-//          // Save it
-//         theAgency.save((err) => {
-//           if (err) {
-//                 res.render('agency/newAgency.ejs', {
-//                 errors:newAgency.errors
-//                 });
-//             return
-//             // next(err);
-//             // return;
-//             //res.status(500).json({ message: 'Something went wrong.' });
-//             //return;
-//           }
-//         //   req.login(theUser, (err) => {
-//         //     if (err) {
-//         //       res.status(500).json({ message: 'Something went wrong.' });
-//         //       return;
-//         //     }
+        // if (currentAmount == '' || isotopeName == '') {
+        //     res.render('agency/newAgency.ejs', {
+        //         errorMessage: 'Please provide both email and password.'
+        //     });
+        //     return;
+        // //       {
+        // //     res.status(400).json({ message: 'Provide username and password.' });
+        // //     return;
+        // //   }
+        //     }
+    Isotope.findOne(
+        // 1st arg -> criteria of the findOne (which documents)
+      { email: currentAmount },
+      // 2nd arg -> projection (which fields)
+      { email: 1 },
+      // 3rd arg -> callback
+      (err, foundAgency) =>{
+            if (err) {
+                res.status(500).json({ message: 'Something went wrong.' });
+                return;
+            }
+            console.log('found',foundAgency)
+            // Don't let the user register if the email is taken
+            if (foundAgency) {
+            res.render('agency/newAgency.ejs', {
+              errorMessage: 'This agency is already in our system '
+            });
+            return;
+            // res.status(400).json({ message: 'The username already exists.' });
+            // return;
+            }
+        // Create the Agency
+        const theAgency = new Agency({
+          isotopeName: req.body.isotopeNameInput,
+          email: req.body.currentAmountInput,
+          contactPhone: req.body.phoneInput,
+          //address:,
+        });
+         // Save it
+        theAgency.save((err) => {
+          if (err) {
+                res.render('agency/newAgency.ejs', {
+                errors:newAgency.errors
+                });
+            return
+            // next(err);
+            // return;
+            //res.status(500).json({ message: 'Something went wrong.' });
+            //return;
+          }
+        //   req.login(theUser, (err) => {
+        //     if (err) {
+        //       res.status(500).json({ message: 'Something went wrong.' });
+        //       return;
+        //     }
             
-//         //     console.log('???????',req.user._id);
-//         //     const usertoken = req.user._id
-//         //     const token = jwt.sign(usertoken, '123');
-//         //     console.log(token);
-//         //     //res.json(token)
-//         //     res.status(200).json([(req.user), (token)]);
-//         //   });
+        //     console.log('???????',req.user._id);
+        //     const usertoken = req.user._id
+        //     const token = jwt.sign(usertoken, '123');
+        //     console.log(token);
+        //     //res.json(token)
+        //     res.status(200).json([(req.user), (token)]);
+        //   });
 
 
-//         // redirect to the list of Agency if it saves
-//         return res.redirect('/agencies');
-//         }); 
-//         // .-------Save-----.
-//      });
-// });
+        // redirect to the list of Agency if it saves
+        return res.redirect('/agencies');
+        }); 
+        // .-------Save-----.
+     });
+});
 
 // //=== Get  and render  the view for   ================
 // //======== the form of new Agencys   =====================

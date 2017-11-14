@@ -6,6 +6,8 @@ const userSchema = new Schema(
     name: { type: String },
     certificateDAte:{type: Date},
     certificateExpired:{type: Boolean},
+    //pI: principal Investigator
+    pI:{ type: Schema.Types.ObjectId },
     role: { type: String,
             enum: [ 'guest', 'admin', 'labStaff' ],
             default: 'guest'
