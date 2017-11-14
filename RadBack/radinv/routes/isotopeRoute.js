@@ -24,17 +24,17 @@ router.get('/api/isotopes', (req, res, next) => {
       }
      
         console.log('thelist',isotopeList);
-        {res.status(200).json(isotopeList)}//working ok jul23
+        {res.status(200).json(isotopeList)}
        })
     }
 );
 /// NEW AGENCY ONLY ADMINISTRATOR VIEW 
-// router.get('/agency/new', (req, res, next) => {
+router.get('/isotopes/new', (req, res, next) => {
 
-//   res.render('agency/newAgency.ejs', {
+  res.render('isotopes/newIsotope.ejs', {
       
-//     });
-// });
+    });
+});
 
 // // ===================================
 // //======= DETAILS of AGENCY ==========
