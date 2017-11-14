@@ -7,13 +7,13 @@ const userSchema = new Schema(
     certificateDAte:{type: Date},
     certificateExpired:{type: Boolean},
     //pI: principal Investigator
-    pI:{ type: Schema.Types.ObjectId },
+    pI:{ type: Schema.Types.ObjectId, ref:'User' },
     role: { type: String,
-            enum: [ 'guest', 'admin', 'labStaff' ],
+            enum: [ 'guest', 'admin', 'labStaff', "pi" ],
             default: 'guest'
             },
     // Traditional registration users
-    username: { type: String },
+    email: { type: String },
     encryptedPassword: { type: String },
   },
   // 2nd arg -> additional options

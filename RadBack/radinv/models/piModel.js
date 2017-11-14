@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 const piSchema = new Schema({
     name: { type: String },
     last: { type: String },
+    address: { type: String },
+    email: { type: String },
     // Traditional registration users
     //username: { type: String },
     //encryptedPassword: { type: String },
