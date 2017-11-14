@@ -12,23 +12,12 @@ const isotopeSchema = new Schema({
   qtrReceivedAmount: { type: Number, default: 0},
   qtrDisposedAmount: { type: Number, default: 0},
   currentAmount: { type: Number, default: 0},
-  //author:{ type: String},
-  //description:{ type: String },
-  //imageUrl: { type: String },
-
-  //reference to the user
-  principalInvestigator: { type: Schema.Types.ObjectId },
-  role: { type: String,
-    enum: [ 'guest', 'admin' ],
-    default: 'guest'
-    },
-  //---reviews as subdocument of photos //
-  
-
+  //reference to the user, PI, etc
+  user: [{ type: Schema.Types.ObjectId, ref:'User'}],
 
 });
 
-const Photo = mongoose.model('Photo', isotopeSchema);
+const isotope = mongoose.model('Isotope', isotopeSchema);
 
 
-module.exports = Photo;
+module.exports = isotope;
