@@ -13,7 +13,7 @@ const userSchema = new Schema(
             default: 'guest'
             },
     // Traditional registration users
-    email: { type: String },
+    userEmail: { type: String },
     encryptedPassword: { type: String },
   },
   // 2nd arg -> additional options

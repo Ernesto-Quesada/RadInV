@@ -12,9 +12,8 @@ const Isotope = require('../models/isotopeModel.js');
 const User = require('../models/userModel.js');
 
     //=========================================================
-    // ===   Render a LIST OF ALL ISOTOPES and sends ==========
-    //====   the list with IsotopeList variable ================
-    //====    to the view =====================================
+    // ===   Render a LIST OF ALL ISOTOPES associated with PI
+    //=========================================================
 router.get('/api/isotopes',
     //ensure.ensureLoggedIn('/login'),
     (req, res, next) => {
@@ -30,6 +29,7 @@ router.get('/api/isotopes',
     }
 );
 
+// Add new isotope
 router.get('/api/isotopes/new', (req, res, next) => {
 
   res.render('isotopes/newIsotope.ejs', {
