@@ -11,7 +11,7 @@ const passport     = require('passport');
 const flash        = require('connect-flash');
 
 require('dotenv').config();
-//require('./config/passport-config.js');
+require('./config/passport-config.js');
 
 mongoose.connect('mongodb://localhost/radinv');
 

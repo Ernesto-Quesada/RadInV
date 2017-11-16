@@ -13,7 +13,7 @@ const isotopeSchema = new Schema({
   qtrDisposedAmount: { type: Number, default: 0},
   currentAmount: { type: Number, default: 0},
   //reference to the user, PI, etc
-  userWithThisIsotope: [{ type: Schema.Types.ObjectId, ref:'User'}],
+  userWithThisIsotope: { type: Schema.Types.ObjectId, ref:'pInv'},
 
 });
 

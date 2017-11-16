@@ -7,7 +7,7 @@ const userSchema = new Schema(
     certificateDAte:{type: Date},
     certificateExpired:{type: Boolean},
     //pI: principal Investigator
-    pI:{ type: Schema.Types.ObjectId, ref:'User' },
+    //pI:{ type: Schema.Types.ObjectId, ref:'pInv' },
     role: { type: String,
             enum: [ 'guest', 'admin', 'labStaff', "pi" ],
             default: 'guest'
