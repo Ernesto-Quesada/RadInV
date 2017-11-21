@@ -7,7 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { IsotopesService} from './services/isotopes.service';
-import { IsotopesComponent } from './isotopes/isotopes.component'
+import { IsotopesComponent } from './isotopes/isotopes.component';
+import { IsotopeDetailComponent } from './isotope-detail/isotope-detail.component'
 
 const routes: Routes = [
   { path: 'isotopes/new', component: IsotopesComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    IsotopesComponent
+    IsotopesComponent,
+    IsotopeDetailComponent
   ],
   imports: [
     BrowserModule,

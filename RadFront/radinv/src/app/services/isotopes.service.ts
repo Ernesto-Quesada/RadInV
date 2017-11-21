@@ -8,11 +8,15 @@ export class IsotopesService {
 BASE_URL = 'http://localhost:3000';
 
   constructor(private http: Http) {}
-getIsotopes() {
-  return this.http.get(this.BASE_URL + '/api/isotopes')
-  .toPromise()
-  .then(res => res.json());
-
-}
+  getIsotopes() {
+    return this.http.get(this.BASE_URL + '/api/isotopes')
+    .toPromise()
+    .then(res => res.json());
+  }
+  isotopeDetails(id) {
+    return this.http.get(`${this.BASE_URL}/api/phones/${id}`)
+    .toPromise()
+    .then(res => res.json());
+  }
 
 }

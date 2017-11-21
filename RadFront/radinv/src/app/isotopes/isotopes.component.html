@@ -2,19 +2,30 @@
   isotopes works!
 </p>
 
-<table class="table table-inverse">
-  <thead>
+<table class="table">
+  <thead >
     <tr>
-      <th>Isotope</th>
+      <th >Isotope</th>
+      <th>Authorized Limit</th>
+      <th>Qtly Starting Balance</th>
+      <th>Qtly Received</th>
+      <th>Qtly Disposal</th>
       <th>Current Amount</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let isotope of theisotopes">
-      <th scope="row">{{isotope.isotopeName}}</th>
+      <th scope="row">        
+      </th>
+      
       <td>{{isotope.currentAmount}}</td>
     </tr>
   </tbody>
 </table>
+<div *ngFor="let isotope of theisotopes">
+  <h4 [routerLink]= ['/isotope-details', isotope.id] class="cursor onselectIsotope">
+    {{isotope.isotopeName}}
+  
+</div>
 
 
