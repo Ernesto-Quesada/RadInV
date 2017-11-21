@@ -16,14 +16,15 @@ const User = require('../models/userModel.js');
     //=========================================================
 router.get('/api/isotopes',
     //ensure.ensureLoggedIn('/login'),
+    //<!--userWithThisIsotope:req.user._id-->
     (req, res, next) => {
-        Isotope.find({userWithThisIsotope:req.user._id}, 
+        Isotope.find({}, 
         (err, isotopeList) => {
             if (err) {
                 res.status(500).json({ message: 'Sooomething went wrong.' });
                 return;
             }
-            console.log('thelist',isotopeList);
+            //console.log('thelist',isotopeList);
             {res.status(200).json(isotopeList)}
         })
     }

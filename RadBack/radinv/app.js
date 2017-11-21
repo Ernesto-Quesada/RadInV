@@ -9,6 +9,7 @@ const mongoose     = require('mongoose');
 const session      = require('express-session');
 const passport     = require('passport');
 const flash        = require('connect-flash');
+var cors           = require('cors');
 
 require('dotenv').config();
 require('./config/passport-config.js');
@@ -16,6 +17,10 @@ require('./config/passport-config.js');
 mongoose.connect('mongodb://localhost/radinv');
 
 const app = express();
+app.use(cors({
+  credentials: true,
+  origin:['http://localhost:4200']
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

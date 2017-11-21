@@ -1,0 +1,20 @@
+<p>
+  isotopes works!
+</p>
+
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>Isotope</th>
+      <th>Current Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let isotope of theisotopes">
+      <th scope="row">{{isotope.isotopeName}}</th>
+      <td>{{isotope.currentAmount}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
