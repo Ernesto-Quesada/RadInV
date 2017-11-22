@@ -4,6 +4,7 @@ const ensure = require('connect-ensure-login');
 const multer = require('multer');
 const path = require('path');
 const passport = require('passport');
+const mongoose = require('mongoose');
 
     // require the Isotope model here
 const Isotope = require('../models/isotopeModel.js');
@@ -24,19 +25,10 @@ router.get('/api/isotopes',
                 res.status(500).json({ message: 'Sooomething went wrong.' });
                 return;
             }
-            //console.log('thelist',isotopeList);
             {res.status(200).json(isotopeList)}
         })
     }
 );
-
-// Add new isotope
-router.get('/api/isotopes/new', (req, res, next) => {
-
-  res.render('isotopes/newIsotope.ejs', {
-      
-    });
-});
 
 // Creating Isotope
 router.post('/isotope', 
@@ -65,4 +57,50 @@ router.post('/isotope',
         });
     }
 );
+router.get('/api/isotope/:id', (req, res, next) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      res.status(400).json({ message: 'Specified id is not valid' });
+      return;
+    }  
+    Isotope.findById(req.params.id, (err, theIsotope) => {
+      if (err) {
+        res.json(err);
+        return;
+      }  
+      res.json(theIsotope);
+    });
+  });
+
+  //Isotope Edit
+router.post('/api/isotope/:id', (req, res, next) => {
+    //                          |
+    const isotopeId = req.params.id;
+    //ensure.ensureLoggedIn('/login'),    
+    const isotopeChanges= {  
+        isotopeName:       req.body.isotopeNameInput,
+        startingBalance:   req.body.startingBalanceInput,
+        qtrReceivedAmount: req.body.qtrReceivedAmountInput,
+        qtrDisposedAmount: req.body.qtrDisposedAmountInput,
+        currentAmount:     req.body.currentAmountInput,
+    }
+    Isotope.findByIdAndUpdate(
+        // 1st arg -> which document (id of the document)
+        isotopeId,
+        // 2nd arg -> which changes to save (from the form)
+        isotopeChanges,
+        // 3rd arg -> CALLBACK!
+        (err, theIsotope) => {
+            if (err) {
+            next(err);
+            return;
+            }
+            res.json(theIsotope)
+      }
+    );
+  }
+);
+
+
+
+
 module.exports = router;
