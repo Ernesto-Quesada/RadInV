@@ -8,10 +8,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IsotopesService} from './services/isotopes.service';
 import { IsotopesComponent } from './isotopes/isotopes.component';
-import { IsotopeDetailComponent } from './isotope-detail/isotope-detail.component'
+import { IsotopeDetailComponent } from './isotope-detail/isotope-detail.component';
+import { IsotopeEditComponent } from './isotope-edit/isotope-edit.component'
 
 const routes: Routes = [
-  { path: 'isotopes/new', component: IsotopesComponent},
+  { path: 'isotopes', component: IsotopesComponent},
+  { path: 'isotope-details/:id', component: IsotopeDetailComponent }
 
 ]
 
@@ -19,7 +21,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     IsotopesComponent,
-    IsotopeDetailComponent
+    IsotopeDetailComponent,
+    IsotopeEditComponent
   ],
   imports: [
     BrowserModule,

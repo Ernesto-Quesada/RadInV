@@ -24,9 +24,5 @@ selectedIsotope: IsotopesComponent;
           console.log(this.theisotopes)
         });
   }
-  onSelect(isotope): void {
-    // this.selectedIsotope = isotope;
-    console.log('this is the isotope',isotope)
-  }
 
 }

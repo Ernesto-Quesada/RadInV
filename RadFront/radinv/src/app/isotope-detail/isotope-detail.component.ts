@@ -9,8 +9,8 @@ import { IsotopesService } from '../services/isotopes.service'
 })
 export class IsotopeDetailComponent implements OnInit {
 
-  isotope: Object;
-  errorMessage: string = '';
+  isotope: any;
+  errorMessage: any
   constructor( private myRoute: ActivatedRoute,
               private isotopesService: IsotopesService,
               private myNavigator: Router) { }
@@ -26,7 +26,7 @@ export class IsotopeDetailComponent implements OnInit {
       this.isotope = theIsotopeDetails;
     })
     .catch((err) => {
-      this.errorMessage = 'Could not retrieve phone details. Try again later.';
+      this.errorMessage = 'Could not retrieve isotope details. Try again later.';
     });
   }
 

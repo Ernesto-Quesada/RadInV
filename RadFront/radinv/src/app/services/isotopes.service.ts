@@ -3,6 +3,7 @@ import { Http, Response , Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 
+
 @Injectable()
 export class IsotopesService {
 BASE_URL = 'http://localhost:3000';
@@ -14,7 +15,7 @@ BASE_URL = 'http://localhost:3000';
     .then(res => res.json());
   }
   isotopeDetails(id) {
-    return this.http.get(`${this.BASE_URL}/api/phones/${id}`)
+    return this.http.get(`${this.BASE_URL}/api/isotope/${id}`)
     .toPromise()
     .then(res => res.json());
   }

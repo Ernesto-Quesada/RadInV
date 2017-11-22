@@ -15,17 +15,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let isotope of theisotopes">
-      <th scope="row">        
+      <th scope="row"><a [routerLink]="['/isotope-details', isotope._id]">{{isotope.isotopeName}}</a>
       </th>
       
       <td>{{isotope.currentAmount}}</td>
     </tr>
   </tbody>
 </table>
-<div *ngFor="let isotope of theisotopes">
-  <h4 [routerLink]= ['/isotope-details', isotope.id] class="cursor onselectIsotope">
-    {{isotope.isotopeName}}
-  
-</div>
+<p>Add New Isotope</p>
+
 
 
