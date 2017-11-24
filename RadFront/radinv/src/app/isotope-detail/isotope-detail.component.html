@@ -3,4 +3,8 @@
 </p>
 <p>{{ isotope.isotopeName }}</p>
 <p>{{ isotope.currentAmount }}</p>
-<p>edit</p>
+<div class="row">
+    <div class="col-md-12 btn-actions">
+      <div class="btn btn-primary btn-md btn-2" [routerLink]="['/isotope-edit']">Edit this Isotope</div>
+    </div>
+  </div>

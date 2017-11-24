@@ -78,6 +78,7 @@ router.post('/api/isotope/:id', (req, res, next) => {
     //ensure.ensureLoggedIn('/login'),    
     const isotopeChanges= {  
         isotopeName:       req.body.isotopeNameInput,
+        authorizedLimit:   req.body.authorizedLimitInput,
         startingBalance:   req.body.startingBalanceInput,
         qtrReceivedAmount: req.body.qtrReceivedAmountInput,
         qtrDisposedAmount: req.body.qtrDisposedAmountInput,

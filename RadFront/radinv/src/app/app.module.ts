@@ -13,8 +13,8 @@ import { IsotopeEditComponent } from './isotope-edit/isotope-edit.component'
 
 const routes: Routes = [
   { path: 'isotopes', component: IsotopesComponent},
-  { path: 'isotope-details/:id', component: IsotopeDetailComponent }
-
+  { path: 'isotope-details/:id', component: IsotopeDetailComponent },
+  { path: 'isotope-edit', component: IsotopeEditComponent},
 ]
 
 @NgModule({

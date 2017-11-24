@@ -1,3 +1,57 @@
-<p>
-  isotope-edit works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 well-custom bg-white overflow-h padding-2">
+        <div class="row">
+          <div class="content-mini relative-new-component col-md-4 well-custom fg-primary-text overflow-h">
+            <div class="block block-mini">  
+              <i class="fa fa-user fg-acent-color icon-mini"></i>
+              <div class="title-mini">
+                <h2>Isotope Edition </h2>
+              </div>
+            </div>
+          </div>
+          <div class="content-mini col-md-8  well-custom fg-white overflow-h">
+            <div class="block block-mini">
+              <!-- ///////////////////////////-->
+              <!--Disabling name input-->
+              <form class="form">
+                <div class="form-group">                  
+                    <input type="text" placeholder="Isotope Name" name="isotopeNameInput" [(ngModel)]="editInfo.isotopeNameInput" id="isotopeNameInput"
+                      class="form-control"  disabled>
+                    <p class="help-block"></p>                  
+                </div>
+                <!-- ///////////////////////////-->
+                <div class="form-group">
+                  <input type="number" placeholder="Authorized Limit" name="authorizedLimitInput" [(ngModel)]="editInfo.authorizedLimitInput" id="authorizedLimitInput" class="form-control" disabled>
+                </div>
+                <!-- ///////////////////////////-->
+                <div class="form-group">
+                  <input type="number" placeholder="Starting Balance" name="startingBalanceInput" [(ngModel)]="editInfo.startingBalanceInput" id="startingBalanceInput" class="form-control" disabled>
+                </div>
+                <!-- ///////////////////////////-->
+                <div class="input-group">
+                  <input type="number" placeholder="Qtly Received Amount" name="qtrReceivedAmountInput" [(ngModel)]="editInfo.qtrReceivedAmountInput" class="form-control" autofocus>
+                  <span class="input-group-addon" id="basic-addon2">microCurie</span>
+                </div>
+                <!-- ///////////////////////////-->
+                <div class="form-group">
+                  <input type="number" placeholder="Qtly Disposed Amount" name="qtrDisposedAmountInput" [(ngModel)]="editInfo.editedPassword" class="form-control">
+                </div>
+                <!-- ///////////////////////////-->
+                <div class="form-group">
+                  <input type="number" placeholder="Current Amount" name="currentAmountInput" [(ngModel)]="editInfo.currentAmountInput" id="currentAmountInput" class="form-control" disabled>
+                </div>
+                <!-- ///////////////////////////-->
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <div class="btn-actions2">
+                  <button (click)="editProfile()" class="btn btn-default btn-md btn-1" [routerLink]="['/profile']">Cancel</button>
+                  <button (click)="editProfile()" class="btn btn-primary btn-md btn-2">Done</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
