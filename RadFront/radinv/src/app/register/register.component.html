@@ -1,3 +1,26 @@
-<p>
-  register works!
-</p>
+<form [formGroup]="form" (ngSubmit)= "onSubmit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text"  [ngClass]="{'error': isValid('firstName')}" class="form-control" id="firstName" placeholder="First Name" formControlName = "firstName">
+      </div>
+      <div class="form-group">
+          <label for="firstName">Last Name</label>
+          <input type="text" [ngClass]="{'error': isValid('lastName')}" class="form-control" id="lasttName" placeholder="Last Name" formControlName = "lastName">
+      </div>
+    <div class="form-group">
+      <label for="email1">Email address</label>
+      <input type="email" [ngClass]="{'error': isValid('email')}" class="form-control" id="email"  placeholder="Enter email" formControlName = "email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [ngClass]="{'error': isValid('password')}" class="form-control" id="password1" placeholder="Password" formControlName = "password"> 
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" [ngClass]="{'error': isValid('confirmPassword')}" class="form-control" id="confirmPassword" placeholder="Confirm Password" formControlName = "confirmPassword"> 
+    </div>
+    <br>
+    <span *ngIf="form.errors?.mismatchedFields">Sorry passwords do not match</span>
+    
+    <button class="btn btn-primary">Submit</button>
+  </form>

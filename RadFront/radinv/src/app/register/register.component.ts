@@ -16,30 +16,30 @@ form;
       lastName: ['', Validators.required],
       email: ['', [Validators.required, this.emailValid()]],
       password: ['', Validators.required],
-      confirmPasword: ['', Validators.required]
-    }, {validator: this.matchingFields('password', 'confirmPassword')})
+      confirmPassword: ['', Validators.required]
+    }, { validator: this.matchingFields('password', 'confirmPassword')}
+  )
    }
    ngOnInit() {
    }
   onSubmit() {
-    this.auth.register(this.form.value);
+//    this.auth.register(this.form.value);
+    console.log(this.form.errors)
   }
   isValid(control) {
     return this.form.controls[control].invalid && this.form.controls[control].touched
   }
   matchingFields(field1, field2) {
     return form => {
-      if (form.controls[field1].value !== form.controls[field2].value){
+      if (form.controls[field1].value !== form.controls[field2].value) {
         return {mismatchedFields: true}
       }
     }
   }
   emailValid() {
     return control => {
-      // tslint:disable-next-line:no-var-keyword
-      var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       return regex.test(control.value) ? null : {invalidEmail: true}
+    }
   }
-
-
 }
