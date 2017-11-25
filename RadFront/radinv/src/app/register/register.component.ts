@@ -23,8 +23,9 @@ form;
    ngOnInit() {
    }
   onSubmit() {
-//    this.auth.register(this.form.value);
-    console.log(this.form.errors)
+    console.log(this.form.value)
+   this.auth.register(this.form.value);
+    
   }
   isValid(control) {
     return this.form.controls[control].invalid && this.form.controls[control].touched

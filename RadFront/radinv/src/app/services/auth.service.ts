@@ -11,7 +11,6 @@ export class AuthService {
 
   register(user) {
     return this.http.post(this.BASE_URL + '/api/auth', user)
-    .toPromise()
-    .then(res => res.json());
+    .subscribe()
   }
 }

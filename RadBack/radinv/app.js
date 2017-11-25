@@ -64,6 +64,10 @@ app.use((req, res, next) => {
 const index = require('./routes/index');
 app.use('/', index);
 
+//--------Auth routes
+const authRoutes = require('./routes/authRoutes.js');
+app.use( '/auth', authRoutes)
+
 //--------isotopes routes
 const isotopesRoutes = require('./routes/isotopeRoute.js');
 app.use('/', isotopesRoutes);
