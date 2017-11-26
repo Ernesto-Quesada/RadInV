@@ -12,13 +12,15 @@ import { AuthService} from './services/auth.service';
 import { IsotopesComponent } from './isotopes/isotopes.component';
 import { IsotopeDetailComponent } from './isotope-detail/isotope-detail.component';
 import { IsotopeEditComponent } from './isotope-edit/isotope-edit.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
   { path: 'isotopes', component: IsotopesComponent},
   { path: 'isotope-details/:id', component: IsotopeDetailComponent },
   { path: 'isotope-edit', component: IsotopeEditComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent},
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     IsotopesComponent,
     IsotopeDetailComponent,
     IsotopeEditComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -66,7 +66,7 @@ app.use('/', index);
 
 //--------Auth routes
 const authRoutes = require('./routes/authRoutes.js');
-app.use( '/auth', authRoutes)
+app.use( '/', authRoutes)
 
 //--------isotopes routes
 const isotopesRoutes = require('./routes/isotopeRoute.js');

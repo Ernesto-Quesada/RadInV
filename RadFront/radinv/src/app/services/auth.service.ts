@@ -10,7 +10,14 @@ export class AuthService {
   constructor(private http: Http) { }
 
   register(user) {
+    delete user.confirmPassword;
     return this.http.post(this.BASE_URL + '/api/auth', user)
-    .subscribe()
+    .subscribe();
   }
 }
+
+//   return this.http.post(this.BASE_URL + '/api/signup',user, { withCredentials: true }
+//        )
+//        .toPromise()
+//       .then(res => res.json());
+// }

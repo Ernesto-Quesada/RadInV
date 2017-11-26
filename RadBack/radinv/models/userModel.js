@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     // All users
-    name: { type: String },
+    firstName: { type: String },
+    lastName: { type: String },
     certificateDAte:{type: Date},
     certificateExpired:{type: Boolean},
     //pI: principal Investigator
