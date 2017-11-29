@@ -25,25 +25,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
-    console.log(this.form.value);
-    console.log(this.form.email,"emailaloane"),
-    console.log(this.form.value.email,"emailaloane value")
-     const payload = {
-      // username
+    // console.log(this.form.value);
+    // console.log(this.form.value.email, 'value_dot_email')
+    const payload = {
       email: this.form.value.email,
-      // password
       password: this.form.value.password
     };
-    console.log('payload', payload)
-    
-        this.authService.login(payload)
-         .then((theTokencomingFromApi) => {
-           this.authService.setToken(theTokencomingFromApi);
-         // this.user = theUsercomingFromApi;
-         this.error = null;
-         this.routetheuser.navigate(['/isotopes']);
-       console.log('TOKEN_KEY api', theTokencomingFromApi);
-       })
+    // console.log('payload', payload)
+    this.authService.login(payload)
+        .then((theTokencomingFromApi) => {
+          // console.log('TOKEN_KEY from API before setToken is called', theTokencomingFromApi);
+          this.authService.setToken(theTokencomingFromApi.token );
+          this.error = null;
+          this.routetheuser.navigate(['/isotopes']);
+          // console.log('TOKEN_KEY api', theTokencomingFromApi);
+        })
        // console.log('LOGIN INFO FROM THE HTML FORM', this.loginInfo);
       //  .catch((err) => {
       //    const apiInfo = err.json();

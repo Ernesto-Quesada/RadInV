@@ -6,12 +6,9 @@ const jwt      = require('jsonwebtoken');
 const checkJwt = require( 'express-jwt');
 // req user model
 const User = require('../models/userModel.js');
+
 const authRoutes = express.Router();
 
-authRoutes.use(checkJwt 
-    ({secret: process.env.JWT_SECRET})
-      .unless({ path:'/api/login'})
-);
 // sign up or authentication route
 authRoutes.post('/api/auth',
   //ensure.ensureNotLoggedIn('/'),
@@ -73,11 +70,12 @@ authRoutes.post('/api/login', (req, res, next) =>{
         if (!bcrypt.compareSync(user.password, foundUser.encryptedPassword )) {
           return res.status(401).json({error: 'Wrong password' });
         } 
+        // ==== payload needed to sign the token
         const paylod = {
           userEmail: foundUser.userEmail,
           role: foundUser.role
         };
-      const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: '1m'});
+      const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: 600 });
       
       return res.status(200).json({ message: 'success auth',
                                     token:token

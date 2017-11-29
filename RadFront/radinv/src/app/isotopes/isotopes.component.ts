@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IsotopesService } from '../services/isotopes.service'
+import { IsotopesService } from '../services/isotopes.service';
+import { AuthService} from '../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,18 +13,20 @@ export class IsotopesComponent implements OnInit {
 theisotopes: IsotopesComponent[];
 selectedIsotope: IsotopesComponent;
 
-  constructor( private isotopesService: IsotopesService) { }
+  constructor( private isotopesService: IsotopesService,
+               private authService: AuthService,
+               private routetheuser: Router) { }
 
   ngOnInit() {
     this.getIsotopes();
   }
-  getIsotopes(): void {
-    this.isotopesService
-        .getIsotopes()
-        .then((isotopes ) => {
-          this.theisotopes = isotopes;
-          console.log(this.theisotopes)
-        });
-  }
-
-}
+  getIsotopes() { this.isotopesService.getIsotopes()
+                .then((isotopes ) => {
+                   this.theisotopes = isotopes;
+                   console.log(this.theisotopes)
+                })
+                .catch((err) => {
+                  this.routetheuser.navigate(['/login']);
+                  });
+  }// getIsotopes
+}// class

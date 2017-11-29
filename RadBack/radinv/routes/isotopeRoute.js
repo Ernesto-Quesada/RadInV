@@ -1,11 +1,17 @@
 const express = require('express');
-const router = express.Router();
 const ensure = require('connect-ensure-login');
 const multer = require('multer');
 const path = require('path');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const checkJwt = require( 'express-jwt');
 
+
+const router = express.Router();
+router.use(checkJwt 
+    ({secret: process.env.JWT_SECRET})
+      .unless({ path:'/api/login'})
+);
     // require the Isotope model here
 const Isotope = require('../models/isotopeModel.js');
     //requires the User model because there is a query in one 
