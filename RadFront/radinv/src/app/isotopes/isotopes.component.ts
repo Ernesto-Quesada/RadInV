@@ -23,7 +23,7 @@ selectedIsotope: IsotopesComponent;
   getIsotopes() { this.isotopesService.getIsotopes()
                 .then((isotopes ) => {
                    this.theisotopes = isotopes;
-                   console.log(this.theisotopes)
+                   //console.log(this.theisotopes)
                 })
                 .catch((err) => {
                   this.routetheuser.navigate(['/login']);
