@@ -33,13 +33,13 @@ export class LoginComponent implements OnInit {
     };
     // console.log('payload', payload)
     this.authService.login(payload)
-        .then((theTokencomingFromApi) => {
-          // console.log('TOKEN_KEY from API before setToken is called', theTokencomingFromApi);
-          this.authService.setToken(theTokencomingFromApi.token );
-          this.error = null;
-          this.routetheuser.navigate(['/isotopes']);
-          // console.log('TOKEN_KEY api', theTokencomingFromApi);
-        })
+        // .((theTokencomingFromApi) => {
+        //   // console.log('TOKEN_KEY from API before setToken is called', theTokencomingFromApi);
+        //   this.authService.setToken(theTokencomingFromApi.token );
+        //   this.error = null;
+        //   this.routetheuser.navigate(['/isotopes']);
+        //   // console.log('TOKEN_KEY api', theTokencomingFromApi);
+        // })
        // console.log('LOGIN INFO FROM THE HTML FORM', this.loginInfo);
       //  .catch((err) => {
       //    const apiInfo = err.json();

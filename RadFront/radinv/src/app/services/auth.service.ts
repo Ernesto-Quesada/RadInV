@@ -48,9 +48,17 @@ export class AuthService {
           // ++
   login( payload ) {
     // console.log('Paylod received at login in authservice', payload);
-    return this.http.post( this.BASE_URL + '/api/login', payload )
-    .toPromise()
-    .then((res) => res.json())
+   this.http.post( this.BASE_URL + '/api/login', payload )
+   .subscribe( res => {
+    console.log(res);
+    localStorage.setItem( this.storageKey, res.json().token)
+   })
+
+
+
+    // return this.http.post( this.BASE_URL + '/api/login', payload )
+    // .toPromise()
+    // .then((res) => res.json())
     // Improve this by redirecting from here to where I want
     // .subscribe( data => {
     //   this.setToken(data.token );

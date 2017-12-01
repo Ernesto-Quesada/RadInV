@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./isotopes.component.css']
 })
 export class IsotopesComponent implements OnInit {
-theisotopes: IsotopesComponent[];
+theisotopes: IsotopesComponent;
 selectedIsotope: IsotopesComponent;
 
   constructor( private isotopesService: IsotopesService,
