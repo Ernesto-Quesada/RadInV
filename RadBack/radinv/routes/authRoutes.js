@@ -75,11 +75,14 @@ authRoutes.post('/api/login', (req, res, next) =>{
           id: foundUser._id,
           role: foundUser.role
         };
-        console.log(foundUser._id)
+        console.log(foundUser._id);
+        nameToFE = foundUser.firstName;
       const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: 600 });
       
       return res.status(200).json({ message: 'success auth',
-                                    token:token
+                                    token:token,
+                                    firstName: foundUser.firstName,
+
                                   })
     });
 
