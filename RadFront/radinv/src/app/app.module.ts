@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { IsotopesService} from './services/isotopes.service';
@@ -43,7 +43,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule, ReactiveFormsModule,
-    HttpClientModule,
+    HttpModule,
     RouterModule.forRoot(routes),
   ],
   providers: [IsotopesService, AuthService],

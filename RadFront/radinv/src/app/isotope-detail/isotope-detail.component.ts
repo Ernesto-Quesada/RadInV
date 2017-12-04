@@ -22,12 +22,12 @@ export class IsotopeDetailComponent implements OnInit {
   }
   getIsotopeDetails(id) {
     this.isotopesService.isotopeDetails(id)
-    .then((theIsotopeDetails) => {
+    .subscribe((theIsotopeDetails) => {
       this.isotope = theIsotopeDetails;
     })
-    .catch((err) => {
-      this.errorMessage = 'Could not retrieve isotope details. Try again later.';
-    });
+    // .((err) => {
+    //   this.errorMessage = 'Could not retrieve isotope details. Try again later.';
+    // });
   }
 
 }

@@ -21,12 +21,12 @@ selectedIsotope: IsotopesComponent;
     this.getIsotopes();
   }
   getIsotopes() { this.isotopesService.getIsotopes()
-                .then((isotopes ) => {
+                .subscribe((isotopes ) => {
                    this.theisotopes = isotopes;
                    //console.log(this.theisotopes)
                 })
-                .catch((err) => {
-                  this.routetheuser.navigate(['/login']);
-                  });
+                // .catch((err) => {
+                //   this.routetheuser.navigate(['/login']);
+                //   });
   }// getIsotopes
 }// class

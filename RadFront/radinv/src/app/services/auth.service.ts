@@ -5,18 +5,18 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
-    //===StorageKEy is just a string name paired with token value
-  storageKey: string = 'contact-manager-jwt';
-  NAME_KEY= 'name';
-  TOKEN_KEY= 'token';
+    // ===StorageKEy is just a string name paired with token value
+  NAME_KEY = 'name';
+  TOKEN_KEY = 'token'
+  token;
   BASE_URL = 'http://localhost:3000';
 
   constructor(private http: Http,
               private router: Router) { }
 
-// +++++++++++++++++++++++++++++++++++++++++
-          // LOGIN
- // ++++++++++++++++++++++
+          // +++
+          // REGISTER NEW USERS
+          // ++
   register(user) {
     // ==NO need to send confirmated password to API
     delete user.confirmPassword;
@@ -24,29 +24,32 @@ export class AuthService {
     .subscribe();
   }
 
- // +++++++++++++++++++++++++++++++++++++++++
-          // LOGIN
- // ++++++++++++++++++++++
   login( payload ) {
     // console.log('Paylod received at login in authservice', payload);
    this.http.post( this.BASE_URL + '/api/login', payload )
    .subscribe( res => {
-    console.log(res);
-    localStorage.setItem( this.storageKey, res.json().token)
+     this.setToken(res);
    })
   }
 
-  setToken(token) {
-    localStorage.setItem(this.storageKey, token);
+  setToken(res) {
+    localStorage.setItem( this.NAME_KEY, res.json().firstName);
+    localStorage.setItem( this.TOKEN_KEY, res.json().token)
   };
+  tokenHeader() {
+    const header = new Headers({'Authorization': 'Bearer ' + localStorage.getItem( this.TOKEN_KEY ) });
+     return new RequestOptions({headers: header});
+  }
   getToken() {
-    return localStorage.getItem(this.storageKey)}
+    const header = new Headers({'Authorization': 'Bearer' + localStorage.getItem(this.TOKEN_KEY)})
+    return new RequestOptions({headers: header});
+  }
 
   isLoggedIn() {
     return this.getToken() !== null;
   };
   logOut() {
-    localStorage.removeItem(this.storageKey);
+    localStorage.removeItem(this.TOKEN_KEY);
     this.router.navigate(['/login'])
   };
 }
