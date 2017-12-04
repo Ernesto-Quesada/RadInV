@@ -12,11 +12,12 @@ export class IsotopesService {
 BASE_URL = 'http://localhost:3000';
 
 
-  constructor(private http: Http) {}
+  constructor(private http: Http,
+              private authService: AuthService ) {}
 
 
   getIsotopes() {
-    return this.http.get(this.BASE_URL + '/api/isotopes')
+    return this.http.get(this.BASE_URL + '/api/isotopes', this.authService.tokenHeader)
     .map(res => res.json());
   }
   isotopeDetails(id) {

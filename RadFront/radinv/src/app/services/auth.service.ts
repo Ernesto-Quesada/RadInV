@@ -36,18 +36,14 @@ export class AuthService {
     localStorage.setItem( this.NAME_KEY, res.json().firstName);
     localStorage.setItem( this.TOKEN_KEY, res.json().token)
   };
-  tokenHeader() {
+  get tokenHeader() {
     const header = new Headers({'Authorization': 'Bearer ' + localStorage.getItem( this.TOKEN_KEY ) });
      return new RequestOptions({headers: header});
   }
-  getToken() {
-    const header = new Headers({'Authorization': 'Bearer' + localStorage.getItem(this.TOKEN_KEY)})
-    return new RequestOptions({headers: header});
-  }
 
-  isLoggedIn() {
-    return this.getToken() !== null;
-  };
+  // isLoggedIn() {
+  //   return this.getToken() !== null;
+  // };
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY);
     this.router.navigate(['/login'])
