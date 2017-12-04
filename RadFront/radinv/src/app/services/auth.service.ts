@@ -38,9 +38,14 @@ export class AuthService {
   };
   get tokenHeader() {
     const header = new Headers({'Authorization': 'Bearer ' + localStorage.getItem(this.TOKEN_KEY)});
-    console.log('-============>', localStorage.getItem(this.TOKEN_KEY))
     console.log (new RequestOptions({headers: header}));
     return new RequestOptions({headers: header});
+  }
+  get name(){
+    return localStorage.getItem(this.NAME_KEY)
+  }
+  get isAuthenticated(){
+    return !!localStorage.getItem(this.TOKEN_KEY)
   }
 
   // isLoggedIn() {
@@ -48,6 +53,7 @@ export class AuthService {
   // };
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.NAME_KEY);
     this.router.navigate(['/login'])
   };
 }

@@ -8,12 +8,14 @@ import { AuthService} from '../services/auth.service'
 })
 export class NavComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService) { 
+    console.log(auth.isAuthenticated)
+  }
 
   ngOnInit() {
   }
   logMeOut() {
-return this.auth.logOut()
+    return this.auth.logOut()
   }
 
 }

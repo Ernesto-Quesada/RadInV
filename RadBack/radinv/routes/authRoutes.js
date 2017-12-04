@@ -73,7 +73,7 @@ authRoutes.post('/api/login', (req, res, next) =>{
         // ==== payload needed to sign the token
         const paylod = {
           id: foundUser._id,
-          role: foundUser.role
+          
         };
         console.log(foundUser._id)
       const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: 600 });

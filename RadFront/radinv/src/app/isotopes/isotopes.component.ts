@@ -18,15 +18,15 @@ selectedIsotope: IsotopesComponent;
                private routetheuser: Router) { }
 
   ngOnInit() {
-    this.getIsotopes();
+    //this.getIsotopes();
+     this.isotopesService.getIsotopes()
+                  .subscribe((isotopes ) => {
+                     this.theisotopes = isotopes;
+                     //console.log(this.theisotopes)
+                  })
+                  // .catch((err) => {
+                  //   this.routetheuser.navigate(['/login']);
+                  //   });
+  // getIsotopes
   }
-  getIsotopes() { this.isotopesService.getIsotopes()
-                .subscribe((isotopes ) => {
-                   this.theisotopes = isotopes;
-                   //console.log(this.theisotopes)
-                })
-                // .catch((err) => {
-                //   this.routetheuser.navigate(['/login']);
-                //   });
-  }// getIsotopes
 }// class

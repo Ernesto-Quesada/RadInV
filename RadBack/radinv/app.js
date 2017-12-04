@@ -10,6 +10,8 @@ const session      = require('express-session');
 const passport     = require('passport');
 const flash        = require('connect-flash');
 var cors           = require('cors');
+const checkJwt = require( 'express-jwt');
+
 
 require('dotenv').config();
 require('./config/passport-config.js');
@@ -58,6 +60,10 @@ app.use((req, res, next) => {
   }
   next();
 });
+app.use(checkJwt 
+  ({secret: process.env.JWT_SECRET})
+    .unless({ path:'/api/login'})
+);
 
 
 //-----Routes-----------

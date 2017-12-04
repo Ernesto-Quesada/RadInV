@@ -1,14 +1,20 @@
 <ul class="nav justify-content-end">
     <li class="nav-item">
-      <a class="nav-link active" [routerLink]="['/']">Home</a>
+      <button class="nav-link active" [routerLink]="['/']">Home</button>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/login']">Log In</a>
+    <li class="nav-item" *ngIf = "!auth.isAuthenticated" >
+      <a  class="nav-link" [routerLink]="['/login']" >Log In</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/register']">Sign Up</a>
+
+    <li class="nav-item" *ngIf= "!auth.isAuthenticated" >
+      <a class="nav-link" [routerLink]="['/register']" >Sign Up</a>
     </li>
-    <li class="nav-item">
+
+    <li class="nav-item" *ngIf = "auth.isAuthenticated"> 
+      <a class="nav-link" >Hi {{auth.name}}</a>
+    </li>
+    
+    <li class="nav-item" *ngIf = "auth.isAuthenticated">
       <a class="nav-link" (click)='logMeOut()'>logout</a>
     </li>
    
