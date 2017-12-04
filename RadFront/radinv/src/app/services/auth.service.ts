@@ -37,8 +37,9 @@ export class AuthService {
     localStorage.setItem( this.TOKEN_KEY, res.json().token)
   };
   get tokenHeader() {
-    const header = new Headers({'Authorization': 'Bearer ' + localStorage.getItem( this.TOKEN_KEY ) });
-     return new RequestOptions({headers: header});
+    const header = new Headers({'Authorization': 'Bearer  ' + localStorage.getItem( this.TOKEN_KEY ) });
+    console.log (header);
+    return new RequestOptions({headers: header});
   }
 
   // isLoggedIn() {
