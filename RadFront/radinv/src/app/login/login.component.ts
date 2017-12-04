@@ -35,11 +35,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(payload);
     this.routetheuser.navigate(['/isotopes']);
      }
-
-
-
-
-
   isValid(control) {
     return this.form.controls[control].invalid && this.form.controls[control].touched
   }
