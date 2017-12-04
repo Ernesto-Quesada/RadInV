@@ -7,9 +7,9 @@ import { AuthService} from '../services/auth.service'
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+//isAuth;
   constructor(private auth: AuthService) { 
-    console.log(auth.isAuthenticated)
+    //this.isAuth = auth.isAuthenticated
   }
 
   ngOnInit() {

@@ -18,11 +18,10 @@ selectedIsotope: IsotopesComponent;
                private routetheuser: Router) { }
 
   ngOnInit() {
-    //this.getIsotopes();
      this.isotopesService.getIsotopes()
                   .subscribe((isotopes ) => {
                      this.theisotopes = isotopes;
-                     //console.log(this.theisotopes)
+                     console.log('=============>>>>',this.theisotopes)
                   })
                   // .catch((err) => {
                   //   this.routetheuser.navigate(['/login']);
