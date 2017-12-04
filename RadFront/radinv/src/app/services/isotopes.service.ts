@@ -21,7 +21,7 @@ BASE_URL = 'http://localhost:3000';
     .map(res => res.json());
   }
   isotopeDetails(id) {
-    return this.http.get(`${this.BASE_URL}/api/isotope/${id}`)
+    return this.http.get(`${this.BASE_URL}/api/isotope/${id}`, this.authService.tokenHeader)
     .map(res => res.json());
   }
 

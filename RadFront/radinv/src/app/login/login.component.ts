@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
       password: this.form.value.password
     };
     // console.log('payload', payload)
-    this.authService.login(payload)
+    this.authService.login(payload);
+    this.routetheuser.navigate(['/isotopes']);
      }
 
 
