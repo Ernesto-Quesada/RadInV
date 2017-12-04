@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 app.use(session({
-  secret: 'mymoneysender',
+  secret: 'radiationcount',
   resave:true,
   saveUninitialized:true,
 }));
