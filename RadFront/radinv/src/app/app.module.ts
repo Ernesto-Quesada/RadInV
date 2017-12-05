@@ -15,16 +15,20 @@ import { IsotopeEditComponent } from './isotope-edit/isotope-edit.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth.guard';
+
 
 const routes: Routes = [
   
   //{ path: 'nav', component: NavComponent},
+  { path: '**' , redirectTo: 'home' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '',  component: HomeComponent },
-  { path: 'isotopes', component: IsotopesComponent},
-  { path: 'isotope-details/:id', component: IsotopeDetailComponent },
-  { path: 'isotope-edit', component: IsotopeEditComponent},
+  //{ path: 'home',  component: HomeComponent },
+  { path: 'isotopes', component: IsotopesComponent, canActivate: [AuthGuard]},
+  { path: 'isotope-details/:id', component: IsotopeDetailComponent, canActivate: [AuthGuard] },
+  { path: 'isotope-edit', component: IsotopeEditComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
 ]
@@ -46,7 +50,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [IsotopesService, AuthService],
+  providers: [IsotopesService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

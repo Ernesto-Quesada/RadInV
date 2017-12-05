@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.authService.isAuthenticated) {
+      this.routetheuser.navigate(['/isotopes'])
+    }
   }
   onSubmit() {
     // console.log(this.form.value);

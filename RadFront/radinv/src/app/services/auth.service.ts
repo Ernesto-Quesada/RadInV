@@ -29,6 +29,7 @@ export class AuthService {
    this.http.post( this.BASE_URL + '/api/login', payload )
    .subscribe( res => {
      this.setToken(res);
+     this.router.navigate(['/isotopes'])
    })
   }
 
