@@ -15,39 +15,44 @@
               <!-- ///////////////////////////-->
               <!--Disabling name input-->
               <form class="form">
-                <div class="form-group">                  
-                    <input type="text" placeholder="Isotope Name" name="isotopeNameInput" [(ngModel)]="editInfo.isotopeNameInput" id="isotopeNameInput"
+                <div class="form-group">   
+                    <label for="isotope name">Isotope Name</label>               
+                    <input type="text"  name="isotopeNameInput" [(ngModel)]="isotope.isotopeName" id="isotopeNameInput"
                       class="form-control"  disabled>
                     <p class="help-block"></p>                  
                 </div>
                 <!-- ///////////////////////////-->
                 <div class="form-group">
-                  <input type="number" placeholder="Authorized Limit" name="authorizedLimitInput" [(ngModel)]="editInfo.authorizedLimitInput" id="authorizedLimitInput" class="form-control" disabled>
+                    <label for="authorizedLimitInput">Authorized Limit</label>
+                  <input type="number"  name="authorizedLimitInput" [(ngModel)]="isotope.authorizedLimit" id="authorizedLimitInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////////////////////-->
                 <div class="form-group">
-                  <input type="number" placeholder="Starting Balance" name="startingBalanceInput" [(ngModel)]="editInfo.startingBalanceInput" id="startingBalanceInput" class="form-control" disabled>
-                </div>
-                <!-- ///////////////////////////-->
-                <div class="input-group form group">
-                  <input type="number" placeholder="Qtly Received Amount" name="qtrReceivedAmountInput" [(ngModel)]="editInfo.qtrReceivedAmountInput" class="form-control" autofocus>
-                  <span class="input-group-addon" id="basic-addon2">microCurie</span>
+                    <label for="starting balance">Starting Balance</label>
+                  <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.startingBalance" id="startingBalanceInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////////////////////-->
                 <div class="input-group form-group">
-                  <input type="number" placeholder="Qtly Disposed Amount" name="qtrDisposedAmountInput" [(ngModel)]="editInfo.qtrDisposedAmountInput" class="form-control">
+                    <label for="qtlyReceivedAmount">Qtly Received Amount</label>
+                    <input type="number" autofocus name="qtrReceivedAmountInput" (keyup)="onKey()" [(ngModel)]="isotope.qtrReceivedAmount" class="form-control">
+                    <span class="input-group-addon" id="basic-addon2">microCurie</span>
+                  </div>
+                <!-- ///////////////////////////-->
+                <div class="input-group form-group">
+                  <label for="qtlyDisposedAmount">Qtly Disposed Amount</label>
+                  <input type="number"  name="qtrDisposedAmountInput" (keyup)="onKey()" [(ngModel)]="isotope.qtrDisposedAmount" class="form-control">
                   <span class="input-group-addon" id="basic-addon2">microCurie</span>
                 </div>
                 <!-- ///////////////////////////-->
                 <div class="form-group">
-                  <input type="number" placeholder="Current Amount" name="currentAmountInput" [(ngModel)]="editInfo.currentAmountInput" id="currentAmountInput" class="form-control" disabled>
+                  <label for="Current Amount">Current Amount</label>
+                  <input type="number"  name="currentAmountInput" [(ngModel)]="isotope.currentAmount" id="currentAmountInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////////////////////-->
                 <div id="success"></div>
                 <!-- For success/fail messages -->
                 <div class="btn-actions2">
-                  <button (click)="editProfile()" class="btn btn-primary btn-md btn-2">Done</button>
-                  <div class="btn btn-primary btn-md btn-2" [routerLink]="['/isotope-edit']">Edit this Isotope</div>
+                  <button (click)="editProfile()" class="btn btn-primary btn-md btn-2">Submit</button>
                   
                 </div>
               </form>

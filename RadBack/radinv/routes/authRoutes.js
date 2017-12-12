@@ -76,7 +76,7 @@ authRoutes.post('/api/login', (req, res, next) =>{
           
         };
         console.log(foundUser._id)
-      const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: 600 });
+      const token = jwt.sign(paylod, process.env.JWT_SECRET, {expiresIn: 6000 });
       
       return res.status(200).json({ message: 'success auth',
                                     token:token,

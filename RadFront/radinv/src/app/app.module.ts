@@ -20,15 +20,13 @@ import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  
-  //{ path: 'nav', component: NavComponent},
-  { path: '**' , redirectTo: 'home' },
+  //{ path: '**' , redirectTo: 'home' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '',  component: HomeComponent },
   //{ path: 'home',  component: HomeComponent },
   { path: 'isotopes', component: IsotopesComponent, canActivate: [AuthGuard]},
   { path: 'isotope-details/:id', component: IsotopeDetailComponent, canActivate: [AuthGuard] },
-  { path: 'isotope-edit', component: IsotopeEditComponent, canActivate: [AuthGuard]},
+  { path: 'isotope-edit/:id', component: IsotopeEditComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
 ]

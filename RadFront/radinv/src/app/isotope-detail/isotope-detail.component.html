@@ -5,6 +5,6 @@
 <p>{{ isotope.currentAmount }}</p>
 <div class="row">
     <div class="col-md-12 btn-actions">
-      <div class="btn btn-primary btn-md btn-2" [routerLink]="['/isotope-edit']">Edit this Isotope</div>
+      <div class="btn btn-primary btn-md btn-2" [routerLink]="['/isotope-edit', isotope._id]">{{isotope.isotopeName}} Edit this Isotope</div>
     </div>
-  </div>
+</div>
