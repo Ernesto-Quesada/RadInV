@@ -12,7 +12,7 @@
           </div>
           <div class="content-mini col-md-8  well-custom fg-white overflow-h">
             <div class="block block-mini">
-              <!-- ///////////////////////////-->
+              <!-- //////////// Isotope Name///////////////-->
               <!--Disabling name input-->
               <form class="form">
                 <div class="form-group">   
@@ -21,29 +21,32 @@
                       class="form-control"  disabled>
                     <p class="help-block"></p>                  
                 </div>
-                <!-- ///////////////////////////-->
+                <!-- /////////// Auth Limit////////////////-->
                 <div class="form-group">
                     <label for="authorizedLimitInput">Authorized Limit</label>
                   <input type="number"  name="authorizedLimitInput" [(ngModel)]="isotope.authorizedLimit" id="authorizedLimitInput" class="form-control" disabled>
                 </div>
-                <!-- ///////////////////////////-->
+                <!-- //////////// Starting Balance ///////////////-->
                 <div class="form-group">
                     <label for="starting balance">Starting Balance</label>
                   <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.startingBalance" id="startingBalanceInput" class="form-control" disabled>
                 </div>
-                <!-- ///////////////////////////-->
-                <div class="input-group form-group">
-                    <label for="qtlyReceivedAmount">Qtly Received Amount</label>
+                <!-- ///////////// Received Amount //////////////-->
+                <div class="input-group form-group  mb-3">
+                  <label for="qtlyReceivedAmount">Qtly Received Amount</label>
                     <input type="number" autofocus name="qtrReceivedAmountInput" (keyup)="onKey()" [(ngModel)]="isotope.qtrReceivedAmount" class="form-control">
-                    <span class="input-group-addon" id="basic-addon2">microCurie</span>
+                    
+                    <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">µCi</span>
                   </div>
-                <!-- ///////////////////////////-->
+                </div>
+                <!-- //////////// Disposed Amount ///////////////-->
                 <div class="input-group form-group">
                   <label for="qtlyDisposedAmount">Qtly Disposed Amount</label>
                   <input type="number"  name="qtrDisposedAmountInput" (keyup)="onKey()" [(ngModel)]="isotope.qtrDisposedAmount" class="form-control">
-                  <span class="input-group-addon" id="basic-addon2">microCurie</span>
+                  <span class="input-group-text" id="basic-addon2">µCi</span>
                 </div>
-                <!-- ///////////////////////////-->
+                <!-- //////////// Current Amount ///////////////-->
                 <div class="form-group">
                   <label for="Current Amount">Current Amount</label>
                   <input type="number"  name="currentAmountInput" [(ngModel)]="isotope.currentAmount" id="currentAmountInput" class="form-control" disabled>
@@ -62,3 +65,5 @@
       </div>
     </div>
   </div>
+ 
+ 

@@ -19,5 +19,4 @@ const isotopeSchema = new Schema({
 
 const isotope = mongoose.model('Isotope', isotopeSchema);
 
-
 module.exports = isotope;
