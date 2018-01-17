@@ -29,7 +29,7 @@
                 <!-- //////////// Starting Balance ///////////////-->
                 <div class="form-group">
                     <label for="starting balance">Starting Balance</label>
-                  <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.startingBalance" id="startingBalanceInput" class="form-control" disabled>
+                  <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.currentAmount" id="startingBalanceInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////// Received Amount //////////////-->
                 <div class="input-group form-group  mb-3">
@@ -46,10 +46,10 @@
                   <input type="number"  name="qtrDisposedAmountInput" (keyup)="onKey()" [(ngModel)]="isotope.qtrDisposedAmount" class="form-control">
                   <span class="input-group-text" id="basic-addon2">µCi</span>
                 </div>
-                <!-- //////////// Current Amount ///////////////-->
+                <!-- //////////// Ending Balance  ///////////////-->
                 <div class="form-group">
-                  <label for="Current Amount">Current Amount</label>
-                  <input type="number"  name="currentAmountInput" [(ngModel)]="isotope.currentAmount" id="currentAmountInput" class="form-control" disabled>
+                  <label for="Current Amount">Ending Amount</label>
+                  <input type="number"  name="endingAmountInput" [(ngModel)]="endingBalance" id="currentAmountInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////////////////////-->
                 <div id="success"></div>

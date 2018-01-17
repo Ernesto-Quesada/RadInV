@@ -88,7 +88,7 @@ router.post('/api/isotope/:id', (req, res, next) => {
         startingBalance:   req.body.startingBalanceInput,
         qtrReceivedAmount: req.body.qtrReceivedAmountInput,
         qtrDisposedAmount: req.body.qtrDisposedAmountInput,
-        currentAmount:     req.body.currentAmountInput,
+        currentAmount:     req.body.endingAmountInput,
     }
     Isotope.findByIdAndUpdate(
         // 1st arg -> which document (id of the document)

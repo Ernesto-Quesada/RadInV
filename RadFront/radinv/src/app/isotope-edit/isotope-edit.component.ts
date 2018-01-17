@@ -11,6 +11,7 @@ import { IsotopesService } from '../services/isotopes.service'
 })
 export class IsotopeEditComponent implements OnInit {
   isotope;
+  endingBalance;
   constructor( private myRoute: ActivatedRoute,
                private isotopesService: IsotopesService,
                private myNavigator: Router) { }
@@ -31,7 +32,7 @@ ngOnInit() {
   }
   onKey() {
     console.log('_+_+_+_+_+_+_+')
-    this.isotope.currentAmount = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount }
+this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount }
   // onKeyDisposed() {
   //   console.log('_+_+_+_+_+_+_+')
   //   this.isotope.currentAmount = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount
