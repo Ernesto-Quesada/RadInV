@@ -78,21 +78,25 @@ router.get('/api/isotope/:id', (req, res, next) => {
   });
 
   //Isotope Edit
-router.post('/api/isotope/:id', (req, res, next) => {
-    //                          |
-    const isotopeId = req.params.id;
-    //ensure.ensureLoggedIn('/login'),    
+router.post('/api/isotope/edit', 
+           (req, res, next) => {
+    // //                          |
+    // const isotopeId = req.params.id;
+    //const isotopeId = req.body
+
+     
     const isotopeChanges= {  
-        isotopeName:       req.body.isotopeNameInput,
-        authorizedLimit:   req.body.authorizedLimitInput,
-        startingBalance:   req.body.startingBalanceInput,
-        qtrReceivedAmount: req.body.qtrReceivedAmountInput,
-        qtrDisposedAmount: req.body.qtrDisposedAmountInput,
-        currentAmount:     req.body.endingAmountInput,
+        isotopeId:         req.body._id,
+        isotopeName:       req.body.isotopeName,
+        currentAmount:     req.body.currentAmount,
+        qtrDisposedAmount: req.body.qtrDisposedAmount,
+        qtrReceivedAmount: req.body.qtrReceivedAmount,
+        startingBalance:   req.body.startingBalance,
+        authorizedLimit:   req.body.authorizedLimit,
     }
     Isotope.findByIdAndUpdate(
         // 1st arg -> which document (id of the document)
-        isotopeId,
+        isotopeChanges.isotopeId,
         // 2nd arg -> which changes to save (from the form)
         isotopeChanges,
         // 3rd arg -> CALLBACK!
@@ -104,6 +108,14 @@ router.post('/api/isotope/:id', (req, res, next) => {
             res.json(theIsotope)
       }
     );
+    // Isotope.findById(isotopeChanges.isotopeId, (err, product) => {
+    //     console.log(product)}
+    // );
+
+
+    
+    
+    // console.log("arrived",isotopeChanges)
   }
 );
 

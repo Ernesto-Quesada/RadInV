@@ -24,5 +24,14 @@ BASE_URL = 'http://localhost:3000';
     return this.http.get(`${this.BASE_URL}/api/isotope/${id}`, this.authService.tokenHeader)
     .map(res => res.json());
   }
+  editIsotope(isotope) {
+     console.log('????????', isotope);
+    return this.http.post(this.BASE_URL + '/api/isotope/edit',
+                          isotope,
+                          this.authService.tokenHeader)
+    .toPromise()
+      .then(res => res.json());
+
+    }
 
 }

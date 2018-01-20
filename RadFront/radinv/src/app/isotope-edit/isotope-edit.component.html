@@ -24,12 +24,16 @@
                 <!-- /////////// Auth Limit////////////////-->
                 <div class="form-group">
                     <label for="authorizedLimitInput">Authorized Limit</label>
-                  <input type="number"  name="authorizedLimitInput" [(ngModel)]="isotope.authorizedLimit" id="authorizedLimitInput" class="form-control" disabled>
+                  <input type="number"  name="authorizedLimitInput" [(ngModel)]="isotope.authorizedLimit" id="authorizedLimitInput" class="form-control">
                 </div>
                 <!-- //////////// Starting Balance ///////////////-->
                 <div class="form-group">
                     <label for="starting balance">Starting Balance</label>
-                  <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.currentAmount" id="startingBalanceInput" class="form-control" disabled>
+                    <!-- current amount for now will be equal to
+                        statting amount but it should be current amount
+                      for the quaterly rreport before submitting to administrator
+                    ater submtting it becomes starting amount -->
+                  <input type="number"  name="startingBalanceInput" [(ngModel)]="isotope.startingBalance" id="startingBalanceInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////// Received Amount //////////////-->
                 <div class="input-group form-group  mb-3">
@@ -48,14 +52,14 @@
                 </div>
                 <!-- //////////// Ending Balance  ///////////////-->
                 <div class="form-group">
-                  <label for="Current Amount">Ending Amount</label>
+                  <label for="endingAmount">Ending Amount</label>
                   <input type="number"  name="endingAmountInput" [(ngModel)]="endingBalance" id="currentAmountInput" class="form-control" disabled>
                 </div>
                 <!-- ///////////////////////////-->
                 <div id="success"></div>
                 <!-- For success/fail messages -->
                 <div class="btn-actions2">
-                  <button (click)="editProfile()" class="btn btn-primary btn-md btn-2">Submit</button>
+                  <button (click)="editIsotope()" class="btn btn-primary btn-md btn-2">Submit</button>
                   
                 </div>
               </form>

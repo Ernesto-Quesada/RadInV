@@ -32,11 +32,31 @@ ngOnInit() {
   }
   onKey() {
     console.log('_+_+_+_+_+_+_+')
-this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount }
-  // onKeyDisposed() {
-  //   console.log('_+_+_+_+_+_+_+')
-  //   this.isotope.currentAmount = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount
-  // }
+    this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount
+  }
 
+  editIsotope() {
+    // console.log('<><><><><><>>', this.isotope)
+    this.isotope.currentAmount = this.endingBalance
+    this.isotopesService.editIsotope(this.isotope)
+    .then((theEditedIsotopeFromApi) => {
+      this.myNavigator.navigate(['/isotopes']);
+    })
+     .catch((err) => {
+       // fix this if error redirect to profile with a message
+    //  this.user = null;
+    //  this.error = err;
+     });
+
+     // thePromise.then((userInfo) => {
+     //   this.user = userInfo;
+     //   this.error = null;
+     // });
+ 
+     // thePromise.catch((err) => {
+     //   this.user = null;
+     //   this.error = err;
+     // });
+   }
 
 }

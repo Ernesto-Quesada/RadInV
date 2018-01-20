@@ -15,10 +15,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let isotope of theisotopes">
-      <th scope="row"><a [routerLink]="['/isotope-details', isotope._id]">{{isotope.isotopeName}}</a>
-      </th>
-      
+      <th scope="row">
+        <a [routerLink]="['/isotope-details', isotope._id]">{{isotope.isotopeName}}</a>
+      </th>      
+      <td>{{isotope.authorizedLimit}}</td>
+      <td>{{isotope.startingBalance}}</td>
+      <td>{{isotope.qtrReceivedAmount}}</td>
+      <td>{{isotope.qtrDisposedAmount}}</td>
       <td>{{isotope.currentAmount}}</td>
+
     </tr>
   </tbody>
 </table>
