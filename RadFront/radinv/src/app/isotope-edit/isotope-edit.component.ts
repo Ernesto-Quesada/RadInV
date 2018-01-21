@@ -24,6 +24,7 @@ ngOnInit() {
     this.isotopesService.isotopeDetails(id)
     .subscribe((theIsotopeDetails) => {
     this.isotope = theIsotopeDetails;
+    this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount;
     console.log('========>', this.isotope)
     })
                   // .((err) => {
@@ -32,7 +33,8 @@ ngOnInit() {
   }
   onKey() {
     console.log('_+_+_+_+_+_+_+')
-    this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount
+    this.endingBalance = this.isotope.startingBalance + this.isotope.qtrReceivedAmount - this.isotope.qtrDisposedAmount;
+    console.log(this.endingBalance)
   }
 
   editIsotope() {
