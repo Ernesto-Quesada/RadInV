@@ -1,0 +1,39 @@
+<form class="form">
+    <div class="form-group">
+        <label for="receivedAmount">Received Amount</label>
+        <input type="number"  name="receivedAmount" [(ngModel)]="receivedAmount" id="receivedAmount" class="form-control">
+    </div>
+    <div class="form-group">   
+        <label for="isotope name">Date Received</label>               
+        <input type="text"  name="displayTime" [(ngModel)]="displayTime" id="displayTime" class="form-control"  d>
+        <p class="help-block"></p>
+    </div>
+
+    <div class="form-group">
+        <label for="manufact" class="bmd-label-floating">Manufacturer</label>
+        <input type="text" [(ngModel)]="displayTime"  class="form-control" id="manufact">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Select Isotope</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected></option>
+          <option value="1">H3</option>
+          <option value="2">P32</option>
+          <option value="3">S35</option>
+        </select>
+      </div>
+    
+    <!-- ///////////////////////////-->
+    <div id="success"></div>
+    <!-- For success/fail messages -->
+    <div class="btn-actions2">
+      <button (click)="editIsotope()" class="btn btn-primary btn-md btn-2">Submit</button>
+      
+    </div>
+  </form>
+
+
+  

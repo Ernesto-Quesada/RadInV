@@ -17,18 +17,23 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
+import { ReceivedComponent } from './received/received.component';
+import { ReceivedEditComponent } from './received-edit/received-edit.component';
 
 
 const routes: Routes = [
-  //{ path: '**' , redirectTo: 'home' },
+  // { path: '**' , redirectTo: 'home' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '',  component: HomeComponent },
-  //{ path: 'home',  component: HomeComponent },
+  // { path: 'home',  component: HomeComponent },
   { path: 'isotopes', component: IsotopesComponent, canActivate: [AuthGuard]},
   { path: 'isotope-details/:id', component: IsotopeDetailComponent, canActivate: [AuthGuard] },
   { path: 'isotope-edit/:id', component: IsotopeEditComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'received', component: ReceivedComponent, canActivate: [AuthGuard] },
+  { path: 'received-edit', component: ReceivedEditComponent, canActivate: [AuthGuard] },
+
 ]
 
 @NgModule({
@@ -40,7 +45,9 @@ const routes: Routes = [
     RegisterComponent,
     LoginComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    ReceivedComponent,
+    ReceivedEditComponent
   ],
   imports: [
     BrowserModule,
