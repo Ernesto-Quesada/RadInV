@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const receivedSchema = new Schema({
-  recID: { type: Schema.Types.ObjectId, ref:'isotope'},
+//   recID: { type: Schema.Types.ObjectId, ref:'isotope'},
+  receivedIsotopeName:{ type: String },
   receivedAmount: { type: Number, default: 0},
-  dateReceived: { type: Date },
+  receivedDate: { type: Date },
   manufacturer: { type: String },
-  currentAmount: { type: Number, default: 0}
+  currentAmount: { type: Number, default: 0},
+  piUser: { type: String },
 },
 {
     // Adds createdAt & updatedAt to documents

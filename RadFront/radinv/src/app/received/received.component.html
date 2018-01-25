@@ -1,3 +1,18 @@
-<p>
-  received works!
-</p>
+<div class="row">
+    <div class="col-md-12" *ngFor="let received of receiveds">
+        <div class="row">
+          <div class="col-md-3">
+            <h3  class="cursor "> {{received.receivedIsotopeName}} </h3>            
+          </div>
+          <div class="col-md-3">
+            <h3  class="cursor "> {{ (received.receivedDate.substr(0,10)) }} </h3>            
+          </div>
+          <div class="col-md-3">
+            <h3  class="cursor "> {{received.receivedAmount}} </h3>            
+          </div>
+          <div class="col-md-3">
+              <h3  class="cursor "> {{received.manufacturer}} </h3>
+          </div>
+        </div>
+    </div>
+</div>

@@ -60,10 +60,10 @@ app.use((req, res, next) => {
   }
   next();
 });
-app.use(checkJwt 
-  ({secret: process.env.JWT_SECRET})
-    .unless({ path:'/api/login'})
-);
+// app.use(checkJwt 
+//   ({secret: process.env.JWT_SECRET})
+//     .unless({ path:'/api/login'})
+// );
 
 
 //-----Routes-----------

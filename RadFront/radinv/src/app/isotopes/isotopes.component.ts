@@ -21,7 +21,7 @@ selectedIsotope: IsotopesComponent;
      this.isotopesService.getIsotopes()
                   .subscribe((isotopes ) => {
                      this.theisotopes = isotopes;
-                     console.log('=============>>>>',this.theisotopes)
+                     console.log('=============>>>>ISOTOPES', this.theisotopes)
                   })
                   // .catch((err) => {
                   //   this.routetheuser.navigate(['/login']);

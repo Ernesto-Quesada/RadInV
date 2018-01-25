@@ -13,7 +13,10 @@ const router = express.Router();
 //       .unless({ path:'/api/login'})
 // );
     // require the Isotope model here
-const Isotope = require('../models/isotopeModel.js');
+const Isotope =         require('../models/isotopeModel.js');
+// require de received model
+const Received = require('../models/received.js');
+
     //requires the User model because there is a query in one 
     //route that will use the User model
 const User = require('../models/userModel.js');
@@ -118,6 +121,55 @@ router.post('/api/isotope/edit',
     // console.log("arrived",isotopeChanges)
   }
 );
+
+router.get('/api/received',
+    //ensure.ensureLoggedIn('/login'),
+    //<!--userWithThisIsotope:req.user._id-->
+    (req, res, next) => {
+        Received.find({}, 
+        (err, receivedList) => {
+            if (err) {
+                res.status(500).json({ message: 'Sooomething went wrong.' });
+                return;
+            }
+            {res.status(200).json(receivedList)}
+        })
+    }
+);
+
+router.post('/api/received-edit', 
+    //ensure.ensureLoggedIn('/login'),
+    (req, res, next) => {
+        const receivedIsotopeName = req.body.receivedIsotopeName;
+        const receivedAmount = req.body.receivedAmount;
+        const receivedDate = req.body.receivedDate
+        const manufacturer = req.body.manufacturer;
+        const piUser = req.body.piUser;
+
+
+        console.log('name of Isotope',receivedIsotopeName);
+        console.log('received amount',receivedAmount);
+        console.log('User',piUser);
+        
+        // Create the new received Isotope
+        const receivedIsotope = new Received({
+            receivedIsotopeName: receivedIsotopeName,
+            receivedAmount: receivedAmount,
+            receivedDate: receivedDate,
+            manufacturer: manufacturer,
+            piUser: piUser,
+        });
+        // Save it
+        receivedIsotope.save((err) => {
+            if (err) {
+                res.status(500).json({ message: 'Sooomething went wrong.' });
+                return;
+            }
+            res.status(200).json(receivedIsotope)
+        });
+    }
+);
+
 
 
 

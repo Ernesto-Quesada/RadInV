@@ -33,5 +33,18 @@ BASE_URL = 'http://localhost:3000';
       .then(res => res.json());
 
     }
+    getReceived() {
+      return this.http.get(this.BASE_URL + '/api/received', this.authService.tokenHeader)
+      .map(res => res.json());
+    }
+
+    receivedIsotope(receivedIsotope) {
+      console.log('receivedIsotope Service', receivedIsotope);
+      return this.http.post(this.BASE_URL + '/api/received-edit',
+                            receivedIsotope,
+                            this.authService.tokenHeader)
+    .toPromise()
+      .then(res => res.json());
+    }
 
 }
