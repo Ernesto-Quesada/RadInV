@@ -19,6 +19,9 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { ReceivedComponent } from './received/received.component';
 import { ReceivedEditComponent } from './received-edit/received-edit.component';
+import { SearchComponent } from './search/search.component';
+import { SearchUserService} from './services/search-user.service';
+
 
 
 const routes: Routes = [
@@ -47,7 +50,8 @@ const routes: Routes = [
     NavComponent,
     HomeComponent,
     ReceivedComponent,
-    ReceivedEditComponent
+    ReceivedEditComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [IsotopesService, AuthService, AuthGuard],
+  providers: [IsotopesService, AuthService, AuthGuard, SearchUserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

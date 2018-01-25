@@ -170,6 +170,18 @@ router.post('/api/received-edit',
     }
 );
 
+router.get('/api/user/', (req, res, next) => {
+    const userName = req.query.name;
+    console.log('LOLOLOLO', userName);
+    User.find({firstName: { $regex: '.*' + userName + '.*' }}, (err, theUser) => {
+      if (err) {
+        res.json(err);
+        return;
+      }
+    res.status(200).json(theUser);
+    });
+});
+
 
 
 

@@ -1,0 +1,14 @@
+<div id="search-component">
+  <h4>Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control"/>
+  <div>
+    
+    <div *ngFor="let user of users | async"
+    (click)="gotoDetail(user)" class="search-result" >
+      {{user.firstName}}
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf='selectedAgency'>
+      <div class="panel-body"><app-agency-details [agencyToDetails]="selectedAgency" [user]="user"></app-agency-details></div>
+</div> -->
